@@ -1,0 +1,23 @@
+{
+  "name": "uf-website_qa-test",
+  "version": "1.0.0",
+  "description": "Exploratory QA testing of the UF website with bug reporting and Playwright automation for functional testing.",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DanielJaffeProjects/UF-Website_QA-Test.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/DanielJaffeProjects/UF-Website_QA-Test/issues"
+  },
+  "homepage": "https://github.com/DanielJaffeProjects/UF-Website_QA-Test#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^26.6.2"
+  }
+}
