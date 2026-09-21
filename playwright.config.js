@@ -35,7 +35,9 @@ export default defineConfig({
     //   slowMo: 500,
     // },
     
-
+    launchOptions: {
+      slowMo: 500,
+    },
     expect: {
       timeout: 10000
     },
