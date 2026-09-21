@@ -4,10 +4,6 @@ test.beforeEach(async ({ page }) => {
     await page.goto('https://www.ece.ufl.edu/');
 });
 
-test.afterEach(async ({ page }) => {
-    await page.close();
-});
-
 
 //testing all the footer links on the uf ece website
 test('Footer Links', async ({ page }) => {
@@ -41,6 +37,7 @@ test('Footer Links', async ({ page }) => {
         await page.getByRole('link', { name: link , exact: true }).click();    }
 });
 
+// checking the social media footer links on the uf ece website
 test('Footer Social Media Links', async ({ page }) => {
 
     const socialLinks = [
@@ -48,12 +45,17 @@ test('Footer Social Media Links', async ({ page }) => {
     "X (formerly Twitter)",
     "YouTube",
     "LinkedIn",
-    "Instagram",
-    "News Feed"
-    ];
+    "Instagram"    ];
     
     for (let i = 0; i < socialLinks.length; i++) {
         await page.goto('https://www.ece.ufl.edu/');
         const link = socialLinks[i];
-        await page.getByRole('link', { name: link , exact: true }).click();    }
+        await page.getByRole('link', { name: link , exact: true }).click(); 
+        await expect(page.getByText(link, { exact: true })).toBeVisible();    
+}
+    await page.goto('https://www.ece.ufl.edu/');
+    await page.getByRole('link', { name: 'News Feed' }).click();
 });
+
+   
+    
