@@ -5,8 +5,8 @@ test.beforeEach(async ({ page }) => {
 });
 
 
-//testing all the footer links on the uf ece website
-test('Footer Links', async ({ page }) => {
+//testing the footer staff resources links on the uf ece website
+test('Footer staff resources Links', async ({ page }) => {
 
     const links = [
     "Directory",
@@ -19,6 +19,17 @@ test('Footer Links', async ({ page }) => {
     "Bylaws",
     "Conference room reservation",
     "HR/payroll",
+    ];
+    
+    for (let i = 0; i < links.length; i++) {
+        const link = links[i];
+        await page.getByRole('link', { name: link , exact: true }).click();    }
+});
+
+//testing the footer website and uf resources links on the uf ece website
+test('Footer Website and Uf resources Links', async ({ page }) => {
+
+    const links = [
     "UF Website Listing",
     "Accessibility",
     "Text-Only Version",
