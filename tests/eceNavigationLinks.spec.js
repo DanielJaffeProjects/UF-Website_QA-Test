@@ -116,26 +116,25 @@ test('Academics links', async ({ page }) => {
 test('Research links', async ({ page }) => {
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.getByRole('link', { name: 'Research' }).click();
+  await expect(page.locator('h1')).toContainText('Research');
 
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32295 > span').click();
-  await page.getByRole('link', { name: 'Computer Engineering', exact: true }).click();
+  await page.getByRole('link', { name: "Computer Engineering", exact: true }).click();
+  await expect(page.locator('h1')).toContainText("Computer Engineering");
 
-  await page.getByRole('button', { name: 'Toggle navigation' }).click();
-  await page.locator('#menu-item-32295 > span').click();
-  await page.getByRole('link', { name: 'Electronics' }).click();
+  const links = [
+    "Electronics",
+    "Electrophysics",
+    "Signals & Systems",
+    "Labs, Centers & Institutes"]
 
-  await page.getByRole('button', { name: 'Toggle navigation' }).click();
-  await page.locator('#menu-item-32295 > span').click();
-  await page.getByRole('link', { name: 'Electrophysics' }).click();
-
-  await page.getByRole('button', { name: 'Toggle navigation' }).click();
-  await page.locator('#menu-item-32295 > span').click();
-  await page.getByRole('link', { name: 'Signals & Systems' }).click();
-
-  await page.getByRole('button', { name: 'Toggle navigation' }).click();
-  await page.locator('#menu-item-32295 > span').click();
-  await page.getByRole('link', { name: 'Labs, Centers & Institutes' }).click();
+  for (let i = 0; i < links.length; i++) {
+    await page.getByRole('button', { name: 'Toggle navigation' }).click();
+    await page.locator('#menu-item-32295 > span').click();
+    await page.getByRole('link', { name: links[i] }).click();
+    await expect(page.locator('h1')).toContainText(links[i]);
+  }
 });
 
 test ('Resources links', async ({ page }) => {
@@ -154,12 +153,15 @@ test('News and awards links', async ({ page }) => {
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.getByRole('link', { name: 'News, Honors & Awards' }).click();
   await page.getByRole('link', { name: 'Department News' }).click();
+  await expect(page.locator('h1')).toContainText('Department News');
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.getByRole('link', { name: 'News, Honors & Awards' }).click();
   const page1Promise = page.waitForEvent('popup');
   await page.getByRole('link', { name: 'Upcoming Events' }).click();
   const page1 = await page1Promise;
   page1.close();
+
   await page.locator('#menu-item-33277 > span').click();
   await page.getByRole('link', { name: 'Faculty Honors & Awards' }).click();
   await expect(page.locator('h1')).toContainText('Faculty Honors & Awards');
@@ -190,16 +192,25 @@ test('Other links', async ({ page }) => {
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.getByRole('button', { name: 'AI Assistants' }).click();
   await page.getByRole('link', { name: 'MS Coursework Planner' }).click();
+  await expect(page.locator('h1')).toContainText('MS Coursework Planner');
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.getByRole('button', { name: 'AI Assistants' }).click();
   await page.getByRole('link', { name: 'Faculty Research Yellow Pages' }).click();
+  await expect(page.locator('h1')).toContainText('Faculty Research Yellow Pages');
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.getByRole('button', { name: 'Key Links' }).click();
   await page.getByRole('link', { name: 'Forms' }).click();
+  await expect(page.locator('h1')).toContainText('Forms');
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.getByRole('button', { name: 'Key Links' }).click();
   await page.getByRole('link', { name: 'Department Directory' }).click();
+  await expect(page.locator('h1')).toContainText('Department Directory');
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.getByRole('button', { name: 'Key Links' }).click();
   await page.getByRole('link', { name: 'Contact ECE Florida' }).click();
+  await expect(page.locator('h1')).toContainText('Contact ECE Florida');
 });
