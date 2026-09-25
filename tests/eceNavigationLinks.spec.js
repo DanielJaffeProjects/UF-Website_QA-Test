@@ -40,27 +40,26 @@ test('About links', async ({ page }) => {
 test('People links', async ({ page }) => {
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.getByRole('link', { name: 'People' }).click();
+  await expect(page.locator('h1')).toContainText('People');
 
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32289 > span').click();
   await page.locator('#menu-item-32351').getByRole('link', { name: 'Faculty' }).click();
+  await expect(page.locator('h1')).toContainText('Faculty');
 
-  await page.getByRole('button', { name: 'Toggle navigation' }).click();
-  await page.locator('#menu-item-32289 > span').click();
-  await page.getByRole('link', { name: 'Staff' }).click();
+  const links = [
+    "Staff",
+    "External Advisory Board",
+    "ECE Ambassadors",
+    "Student Groups"
+  ]
 
-  await page.getByRole('button', { name: 'Toggle navigation' }).click();
-  await page.locator('#menu-item-32289 > span').click();
-  await page.getByRole('link', { name: 'External Advisory Board' }).click();
-
-  await page.getByRole('button', { name: 'Toggle navigation' }).click();
-  await page.locator('#menu-item-32289 > span').click();
-  await page.getByRole('link', { name: 'ECE Ambassadors' }).click();
-
-  await page.getByRole('button', { name: 'Toggle navigation' }).click();
-  await page.locator('#menu-item-32289 > span').click();
-  await page.getByRole('link', { name: 'Student Groups' }).click();
-
+  for (let i = 0; i < links.length; i++) {
+    await page.getByRole('button', { name: 'Toggle navigation' }).click();
+    await page.locator('#menu-item-32289 > span').click();
+    await page.getByRole('link', { name: links[i] }).click();
+    await expect(page.locator('h1')).toContainText(links[i]);
+  }
 });
 
 //testing the admissions links on the uf ece website
