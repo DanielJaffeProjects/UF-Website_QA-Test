@@ -174,26 +174,19 @@ test('News and awards links', async ({ page }) => {
   await page.getByRole('link', { name: 'Faculty Honors & Awards' }).click();
   await expect(page.locator('h1')).toContainText('Faculty Honors & Awards');
 
-  await page.getByRole('button', { name: 'Toggle navigation' }).click();
-  await page.locator('#menu-item-33277 > span').click();
-  await page.getByRole('link', { name: 'ECE Hall of Fame' }).click();
-  await expect(page.locator('h1')).toContainText('ECE Hall of Fame');
+  const Links = [
+    "ECE Hall of Fame",
+    "ECE Excellence Awards",
+    "Distinguished Alumni Awards",
+    "Student Awards"
+  ]
 
-  await page.getByRole('button', { name: 'Toggle navigation' }).click();
-  await page.locator('#menu-item-33277 > span').click();
-  await page.getByRole('link', { name: 'ECE Excellence Awards' }).click()
-  await expect(page.locator('h1')).toContainText('ECE Excellence Awards');
-
-
-  await page.getByRole('button', { name: 'Toggle navigation' }).click();
-  await page.locator('#menu-item-33277 > span').click();
-  await page.getByRole('link', { name: 'Distinguished Alumni Awards' }).click();
-  await expect(page.locator('h1')).toContainText('Distinguished Alumni Awards');
-
-  await page.getByRole('button', { name: 'Toggle navigation' }).click();
-  await page.locator('#menu-item-33277').getByRole('link', { name: 'News, Honors & Awards' }).click();
-  await page.getByRole('link', { name: 'Student Awards' }).click();
-  await expect(page.locator('h1')).toContainText('Student Awards');
+  for (let i = 0; i < Links.length; i++) {
+    await page.getByRole('button', { name: 'Toggle navigation' }).click();
+    await page.locator('#menu-item-33277 > span').click();
+    await page.getByRole('link', { name: Links[i] }).click();
+    await expect(page.locator('h1')).toContainText(Links[i]);
+  }
 });
 
 test('Other links', async ({ page }) => {
