@@ -14,18 +14,23 @@ test.beforeEach(async ({ page }) => {
 test('About links', async ({ page }) => {
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.getByRole('link', { name: 'About', exact: true }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32287 > span').click();
   await page.locator('#menu-item-32319').getByRole('link', { name: 'Department Leadership' }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32287 > span').click();
   await page.getByRole('link', { name: 'Why ECE @ UF?' }).click();
+  
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32287 > span').click();
   await page.getByRole('link', { name: 'Accreditation' }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32287 > span').click();
   await page.getByRole('link', { name: 'Department History' }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32287 > span').click();
   await page.getByRole('link', { name: 'Support ECE' }).click();
@@ -35,18 +40,23 @@ test('About links', async ({ page }) => {
 test('People links', async ({ page }) => {
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.getByRole('link', { name: 'People' }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32289 > span').click();
   await page.locator('#menu-item-32351').getByRole('link', { name: 'Faculty' }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32289 > span').click();
   await page.getByRole('link', { name: 'Staff' }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32289 > span').click();
   await page.getByRole('link', { name: 'External Advisory Board' }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32289 > span').click();
   await page.getByRole('link', { name: 'ECE Ambassadors' }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32289 > span').click();
   await page.getByRole('link', { name: 'Student Groups' }).click();
@@ -58,9 +68,11 @@ test('Admissions links', async ({ page }) => {
 
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.getByRole('link', { name: 'Admissions', exact: true }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32291 > span').click();
   await page.getByRole('link', { name: 'Undergraduate Admissions', exact: true }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32291 > span').click();
   await page.getByRole('link', { name: 'Graduate Admissions &' }).click();
@@ -72,21 +84,27 @@ test('Academics links', async ({ page }) => {
 
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.getByRole('link', { name: 'Academics', exact: true }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32293 > span').click();
   await page.getByRole('link', { name: 'Undergraduate Academics' }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32293 > span').click();
   await page.getByRole('link', { name: 'Graduate Academics', exact: true }).click();
+  
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32293 > span').click();
   await page.getByRole('link', { name: 'Online Courses' }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32293 > span').click();
   await page.getByRole('link', { name: 'Certificates' }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32293 > span').click();
   await page.getByRole('link', { name: 'Forms' }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32293 > span').click();
   const page1Promise = page.waitForEvent('popup');
@@ -98,18 +116,23 @@ test('Academics links', async ({ page }) => {
 test('Research links', async ({ page }) => {
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.getByRole('link', { name: 'Research' }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32295 > span').click();
   await page.getByRole('link', { name: 'Computer Engineering', exact: true }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32295 > span').click();
   await page.getByRole('link', { name: 'Electronics' }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32295 > span').click();
   await page.getByRole('link', { name: 'Electrophysics' }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32295 > span').click();
   await page.getByRole('link', { name: 'Signals & Systems' }).click();
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32295 > span').click();
   await page.getByRole('link', { name: 'Labs, Centers & Institutes' }).click();
@@ -119,9 +142,12 @@ test ('Resources links', async ({ page }) => {
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.getByRole('link', { name: 'Resources', exact: true }).click();
   await page.getByRole('link', { name: 'For Alumni' }).click();
+  await expect(page.locator('ol')).toContainText('Alumni Resources');
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-33243 > span').click();
   await page.getByRole('link', { name: 'For Faculty & Staff' }).click();
+  await expect(page.locator('h1')).toContainText('Faculty & Staff Resources');
 });
 
 test('News and awards links', async ({ page }) => {
