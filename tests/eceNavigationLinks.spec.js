@@ -67,14 +67,17 @@ test('Admissions links', async ({ page }) => {
 
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.getByRole('link', { name: 'Admissions', exact: true }).click();
+  await expect(page.locator('h1')).toContainText('Admissions');
 
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32291 > span').click();
   await page.getByRole('link', { name: 'Undergraduate Admissions', exact: true }).click();
+  await expect(page.locator('h1')).toContainText('Undergraduate Admissions');
 
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32291 > span').click();
-  await page.getByRole('link', { name: 'Graduate Admissions &' }).click();
+  await page.getByRole('link', { name: 'Graduate Admissions & Academics' }).click();
+  await expect(page.locator('h1')).toContainText('Graduate Admissions & Academics');
 
 });
 
@@ -83,26 +86,32 @@ test('Academics links', async ({ page }) => {
 
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.getByRole('link', { name: 'Academics', exact: true }).click();
+  await expect(page.locator('h1')).toContainText('Academics');
 
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32293 > span').click();
   await page.getByRole('link', { name: 'Undergraduate Academics' }).click();
+  await expect(page.locator('h1')).toContainText('Undergraduate Academics');
 
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32293 > span').click();
   await page.getByRole('link', { name: 'Graduate Academics', exact: true }).click();
-  
+  await expect(page.locator('h1')).toContainText('Graduate Academics');
+
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32293 > span').click();
   await page.getByRole('link', { name: 'Online Courses' }).click();
+  await expect(page.locator('h1')).toContainText('Online Courses');
 
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32293 > span').click();
   await page.getByRole('link', { name: 'Certificates' }).click();
+  await expect(page.locator('h1')).toContainText('Certificates');
 
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32293 > span').click();
   await page.getByRole('link', { name: 'Forms' }).click();
+  await expect(page.locator('h1')).toContainText('Forms');
 
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32293 > span').click();
