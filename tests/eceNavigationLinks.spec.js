@@ -14,26 +14,26 @@ test.beforeEach(async ({ page }) => {
 test('About links', async ({ page }) => {
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.getByRole('link', { name: 'About', exact: true }).click();
+  await expect(page.locator('h1')).toContainText('About');
 
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32287 > span').click();
   await page.locator('#menu-item-32319').getByRole('link', { name: 'Department Leadership' }).click();
-
-  await page.getByRole('button', { name: 'Toggle navigation' }).click();
-  await page.locator('#menu-item-32287 > span').click();
-  await page.getByRole('link', { name: 'Why ECE @ UF?' }).click();
+  await expect(page.locator('#main')).toContainText('Department Leadership');
   
-  await page.getByRole('button', { name: 'Toggle navigation' }).click();
-  await page.locator('#menu-item-32287 > span').click();
-  await page.getByRole('link', { name: 'Accreditation' }).click();
+  const links = [
+    "Why ECE @ UF?",
+    "Accreditation",
+    "Department History",
+    "Support ECE"
+  ]
 
+  for (let i = 0; i < links.length; i++) {
   await page.getByRole('button', { name: 'Toggle navigation' }).click();
   await page.locator('#menu-item-32287 > span').click();
-  await page.getByRole('link', { name: 'Department History' }).click();
-
-  await page.getByRole('button', { name: 'Toggle navigation' }).click();
-  await page.locator('#menu-item-32287 > span').click();
-  await page.getByRole('link', { name: 'Support ECE' }).click();
+  await page.getByRole('link', { name: links[i] }).click();
+  await expect(page.locator('h1')).toContainText(links[i]);
+  }
 });
 
 //testing the people links on the uf ece website
