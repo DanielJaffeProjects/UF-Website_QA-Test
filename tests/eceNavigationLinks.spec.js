@@ -197,28 +197,19 @@ test('News and awards links', async ({ page }) => {
 });
 
 test('Other links', async ({ page }) => {
-  await page.getByRole('button', { name: 'Toggle navigation' }).click();
-  await page.getByRole('button', { name: 'AI Assistants' }).click();
-  await page.getByRole('link', { name: 'MS Coursework Planner' }).click();
-  await expect(page.locator('h1')).toContainText('MS Coursework Planner');
 
-  await page.getByRole('button', { name: 'Toggle navigation' }).click();
-  await page.getByRole('button', { name: 'AI Assistants' }).click();
-  await page.getByRole('link', { name: 'Faculty Research Yellow Pages' }).click();
-  await expect(page.locator('h1')).toContainText('Faculty Research Yellow Pages');
+  const links = [
+    ['AI Assistants', 'MS Coursework Planner'], 
+    ['AI Assistants', 'Faculty Research Yellow Pages'],
+    ['Key Links', 'Forms'],
+    ['Key Links', 'Department Directory'],
+    ['Key Links', 'Contact ECE Florida']
+  ]
 
-  await page.getByRole('button', { name: 'Toggle navigation' }).click();
-  await page.getByRole('button', { name: 'Key Links' }).click();
-  await page.getByRole('link', { name: 'Forms' }).click();
-  await expect(page.locator('h1')).toContainText('Forms');
-
-  await page.getByRole('button', { name: 'Toggle navigation' }).click();
-  await page.getByRole('button', { name: 'Key Links' }).click();
-  await page.getByRole('link', { name: 'Department Directory' }).click();
-  await expect(page.locator('h1')).toContainText('Department Directory');
-
-  await page.getByRole('button', { name: 'Toggle navigation' }).click();
-  await page.getByRole('button', { name: 'Key Links' }).click();
-  await page.getByRole('link', { name: 'Contact ECE Florida' }).click();
-  await expect(page.locator('h1')).toContainText('Contact ECE Florida');
+  for (let i = 0; i < links.length; i++) {
+    await page.getByRole('button', { name: 'Toggle navigation' }).click();
+    await page.getByRole('button', { name: links[i][0] }).click();
+    await page.getByRole('link', { name: links[i][1] }).click();
+    await expect(page.locator('h1')).toContainText(links[i][1]);
+  }
 });
