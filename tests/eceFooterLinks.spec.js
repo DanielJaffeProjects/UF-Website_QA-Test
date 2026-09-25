@@ -2,6 +2,7 @@ import {test, expect} from '@playwright/test';
 
 test.beforeEach(async ({ page }) => {
     await page.goto('https://www.ece.ufl.edu/');
+    await expect(page).toHaveTitle('Department of Electrical & Computer Engineering');
 });
 
 
