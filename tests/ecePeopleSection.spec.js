@@ -42,3 +42,16 @@ test('Department Directory', async ({ page }) => {
   await page.getByRole('link', { name: 'J', exact: true }).click();
   await page.getByRole('link', { name: 'Clear Search' }).click();
 });
+
+test('student groups', async ({ page }) => {
+  await page.getByRole('link', { name: 'Student Groups' }).click();
+  await expect(page.locator('h1')).toContainText('Student Groups');
+  // if getbyrole are links on the page print them here
+  const links = await page.locator('main a').all();
+  for (let i = 0; i < links.length; i++) {
+    const link = links[i];
+    const linkText = await link.textContent();
+    console.log('NAMES OF THE STUDENT GROUPS IN ECE:');
+    console.log(linkText);
+  }
+});
